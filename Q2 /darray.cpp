@@ -95,10 +95,7 @@ int& DArray::operator[](int index)
 }
 
 
-const int& DArray::operator[](int index) const
-{
-    return iptr[index];
-}
+
 
 ostream& operator<<(ostream &out, const DArray &obj)
 {
