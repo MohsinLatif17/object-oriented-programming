@@ -2,15 +2,23 @@
 #include "DArray.h"
 using namespace std;
 
-DArray::DArray() : iptr(nullptr), size(0), capacity(0) {}
+DArray::DArray() {
+    size{};
+    capacity{};
+    iptr=nullptr;
+}
 
 DArray& DArray::operator=(const DArray& obj) {
     if (this != &obj) {
-        delete[] iptr;
+    
 
         size = obj.size;
         capacity = obj.capacity;
-        iptr = (capacity > 0) ? new int[capacity] : nullptr;
+     if(capacity==0){
+         iptr= new int [capacity];
+     }else{
+         iptr=nullptr;
+     }
 
         for (int i = 0; i < size; ++i) {
             iptr[i] = obj.iptr[i];
