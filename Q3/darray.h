@@ -21,7 +21,7 @@ public:
     int size() const;
     int capacity() const;
 
-    const int& operator[](int index) const;
+     int& operator[](int index) ;
     bool operator==(const DArray& obj) const;
 };
 
