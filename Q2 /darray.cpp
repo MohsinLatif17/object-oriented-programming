@@ -5,7 +5,7 @@ DArray::DArray()
 {
     size = 0;
     capacity = 0;
-    arr=nullptr;
+    iptr=nullptr;
 }
 
 
@@ -14,11 +14,11 @@ DArray::DArray(const DArray &obj)
     size = obj.size;
     capacity = obj.capacity;
 
-    arr = new int[capacity];
+    iptr = new int[capacity];
 
-    for(int i = 0; i < size; i++)
+    for(int i{}; i < size; ++i)
     {
-        arr[i] = obj.arr[i];
+        iptr[i] = obj.iptr[i];
     }
 }
 
@@ -33,16 +33,16 @@ DArray& DArray::operator=(const DArray &obj)
 {
     if(this != &obj)
     {
-        delete[] arr;
+        
 
         size = obj.size;
         capacity = obj.capacity;
 
-        arr = new int[capacity];
+        iptr = new int[capacity];
 
-        for(int i = 0; i < size; i++)
+        for(int i{}; i < size; ++i)
         {
-            arr[i] = obj.arr[i];
+            iptr[i] = obj.iptr[i];
         }
     }
 
@@ -54,7 +54,7 @@ void DArray::push_back(int value)
 {
     if(size < capacity)
     {
-        arr[size] = value;
+        iptr[size] = value;
         size++;
     }
     else
@@ -63,15 +63,15 @@ void DArray::push_back(int value)
 
         int *temp = new int[capacity];
        
-        for(int i = 0; i < size; i++)
+        for(int i{}; i < size; ++i)
         {
-            temp[i] = arr[i];
+            temp[i] = iptr[i];
         }
-        delete[] arr;
+        delete[] iptr;
 
       
-        arr = temp;
-        arr[size] = value;
+        iptr = temp;
+        iptr[size] = value;
         size++;
     }
 }
@@ -91,18 +91,18 @@ int DArray::capacity() const
 
 int& DArray::operator[](int index)
 {
-    return arr[index];
+    return iptr[index];
 }
 
 
 const int& DArray::operator[](int index) const
 {
-    return arr[index];
+    return iptr[index];
 }
 
 ostream& operator<<(ostream &out, const DArray &obj)
 {
-    for(int i = 0; i < obj.size(); i++)
+    for(int i{}; i < obj.size(); ++i)
     {
         out << obj[i] << " ";
     }
