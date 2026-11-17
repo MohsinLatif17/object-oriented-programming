@@ -25,7 +25,7 @@ public:
     int capacity() const;
     
     int& operator[](int index);
-    const int& operator[](int index) const;
+    
 };
 ostream& operator<<(ostream &out, const DArray &obj);
 #endif
