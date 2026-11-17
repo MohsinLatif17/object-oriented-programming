@@ -15,11 +15,11 @@ private:
 public:
    
     DArray();
-    DArray(const DArray &obj);
+     void push_back(int value);
     ~DArray();
 
     DArray& operator=(const DArray &obj);
-    void push_back(int value);
+   
 
     int size() const;
     int capacity() const;
