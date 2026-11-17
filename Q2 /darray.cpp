@@ -8,24 +8,9 @@ DArray::DArray()
     iptr=nullptr;
 }
 
-
-DArray::DArray(const DArray &obj)
-{
-    size = obj.size;
-    capacity = obj.capacity;
-
-    iptr = new int[capacity];
-
-    for(int i{}; i < size; ++i)
-    {
-        iptr[i] = obj.iptr[i];
-    }
-}
-
-
 DArray::~DArray()
 {
-    delete[] arr;
+    delete[] iptr;
 }
 
 
